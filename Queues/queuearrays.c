@@ -1,9 +1,9 @@
 // Write a menu driven program of queues using arrays having menu with options enqueue , dequeue , display and exit. 
-
+//(Here the complexity of enqueue and dequeue function is O(1))
 #include<stdio.h>
 #include<stdlib.h>
 #include<stdbool.h>
-#define SIZE 3
+#define SIZE 5
  
 typedef struct Queue
 {
@@ -14,7 +14,7 @@ typedef struct Queue
 
 void display(queue *q)
 {
-    if(isEmpty())
+    if(q->r== -1)
     {
         printf("Queue is empty!\n");
         return;
@@ -27,22 +27,8 @@ void display(queue *q)
     
 }
  
-int isEmpty(queue *q){
-    if(q->r== -1){
-        return 1;
-    }
-    return 0;
-}
-
-int isFull(queue *q){
-    if(q->r==SIZE-1){
-        return 1;
-    }
-    return 0;
-}
- 
 void enqueue(queue *q, int val){
-    if(isFull(q)){
+    if(q->r==SIZE-1){
         printf("This Queue is full\n");
         return;
     }
@@ -56,9 +42,9 @@ void enqueue(queue *q, int val){
     q->r++;
     q->arr[q->r] = val;
 }
- 
+
 void dequeue(queue *q){
-    if(isEmpty(q)){
+    if(q->r== -1){
         printf("This Queue is empty\n");
         return;
     }
