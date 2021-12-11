@@ -68,7 +68,7 @@ void bfs(int s)
         }
 
         int i = dq;
-        for (int j = 0; j < vertex; j++)
+        for (int j = 1; j < vertex; j++)
         {
             if (seen[j] == 0)
             {
@@ -85,19 +85,19 @@ int main(void)
     scanf("%d", &v);
     printf("Enter the no of edges\n");
     scanf("%d", &e);
-    for (int i = 0; i < v; i++)
+    for (int i = 1; i < v; i++)
     {
-        for (int j = 0; j < v; j++)
+        for (int j = 1; j < v; j++)
         {
             a[i][j] = 0;
         }
     }
-    for (int j = 0; j < v; j++)
+    for (int j = 1; j < v; j++)
     {
         seen[j] = 0;
     }
     vertex = v;
-    for (int i = e - 1; i >= 0; i--)
+    for (int i = e ; i > 0; i--)
     {
         printf("Enter vertices of edges\n");
         int r;
@@ -106,9 +106,9 @@ int main(void)
         a[r][c] = 1;
         a[c][r] = 1;
     }
-    for (int i = 0; i < v; i++)
+    for (int i = 1; i <= v; i++)
     {
-        for (int j = 0; j < v; j++)
+        for (int j = 1; j <= v; j++)
         {
             printf("%2d", a[i][j]);
         }
